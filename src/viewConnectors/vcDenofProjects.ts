@@ -1,8 +1,6 @@
 import {num,res,oper} from "../reducerActions/denOfProjectsReducerActoins";
 
-// export const mapStateToProps = (state: any) => {
-//   return { dopState: state.denOfProjectsReducerState };
-// };
+
 
 export const mapStateToProps = (state:any) => {
   return {
