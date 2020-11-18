@@ -10,7 +10,8 @@ export const mapStateToProps = (state:any) => {
     num1:state.num1,
     num2:state.num2,
     result:state.result,
-    op:state.op
+    op:state.op,
+    dopState: state.denOfProjectsReducerState
 
   }
 }
