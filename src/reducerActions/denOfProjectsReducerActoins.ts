@@ -1,9 +1,16 @@
 import { denOfProjectsActionTypes } from "../actionTypes/denOfProjectsActionTypes";
 
 
-export const num=(val:any)=>{
+export const var1=(val:any)=>{
   return {
-      type:denOfProjectsActionTypes.NUM,
+      type:denOfProjectsActionTypes.VAR1,
+      payload:val
+      
+  }
+}
+export const var2=(val:any)=>{
+  return {
+      type:denOfProjectsActionTypes.VAR2,
       payload:val
       
   }

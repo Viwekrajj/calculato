@@ -10,38 +10,52 @@ import {
 interface DenofProjectsViewProps {
     readonly dopState: any;
     readonly result: any;
-    
-
-
-    
     readonly res: () => void;
-    readonly num: (val: any) => void;
+    readonly var1: (val: any) => void;
+    readonly var2: (val: any) => void;
     readonly oper: (val: any) => void
 }
 
 class DenofProjects extends React.PureComponent<DenofProjectsViewProps> {
     state = {
-        val: ""
-
+        val1: "",
+        val2: ""
     };
 
-    change = (e: any) => {
+    change1 = (e: any) => {
         this.setState({
-            val: e.target.value
+            val1: e.target.value
         });
+        
     };
-    med = () => {
-        this.props.num(this.state.val);
-
-        this.clr();
-
-    }
-    clr = () => {
+    change2 = (e: any) => {
         this.setState({
-            val: ""
-        })
+            val2: e.target.value
+        });
+        
+    };
 
+    add=()=>{
+        this.props.var1(this.state.val1);
+        this.props.var2(this.state.val2);
+        this.props.oper('+')
     }
+    sub=()=>{
+        this.props.var1(this.state.val1);
+        this.props.var2(this.state.val2);
+        this.props.oper('-')
+    }
+    mult=()=>{
+        this.props.var1(this.state.val1);
+        this.props.var2(this.state.val2);
+        this.props.oper('*')
+    }
+    div=()=>{
+        this.props.var1(this.state.val1);
+        this.props.var2(this.state.val2);
+        this.props.oper('/')
+    }
+   
 
     render() {
         return (
@@ -50,14 +64,17 @@ class DenofProjects extends React.PureComponent<DenofProjectsViewProps> {
                     <div className="container">
                         result--   {this.props.dopState.result}
                         
-                        <input type="text" value={this.state.val} onChange={this.change}></input>
+                        <input type="text" value={this.state.val1} onChange={this.change1} placeholder="enter ur 1st no"></input>
+                        <input type="text" value={this.state.val2} onChange={this.change2} placeholder="enter ur 2nd no"></input>
                         <div className="keypad">
-                            <button onClick={this.med}>submit</button>
-                            <button onClick={() => this.props.res()}>res</button>
-                            <button onClick={() => { this.props.oper('+') }}>+</button>
-                            <button onClick={() => { this.props.oper('-') }}>-</button>
-                            <button onClick={() => { this.props.oper('/') }}>/</button>
-                            <button onClick={() => { this.props.oper('*') }}>*</button>
+                            
+                            
+                            <button onClick={this.add}>+</button>
+                            
+                            <button onClick={ this.sub}>-</button>
+                            <button onClick={this.div}>/</button>
+                            <button onClick={this.mult}>*</button>
+                            <button onClick={() => this.props.res()}>=</button>
                             
 
                         </div>

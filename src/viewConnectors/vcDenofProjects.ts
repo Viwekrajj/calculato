@@ -1,4 +1,4 @@
-import {num,res,oper} from "../reducerActions/denOfProjectsReducerActoins";
+import {var1,var2,res,oper} from "../reducerActions/denOfProjectsReducerActoins";
 
 
 
@@ -21,7 +21,8 @@ export const mapStateToProps = (state:any) => {
 export function mapDispatchToProps  (dispatch:any)  {
   return {
 
-    num: (val:any) => { dispatch(num(val)) },
+    var1: (val1:any) => { dispatch(var1(val1)) },
+    var2: (val2:any) => { dispatch(var2(val2)) },
     oper: (value:any) => { dispatch(oper(value)) },
     res: () => { dispatch(res()) },
 

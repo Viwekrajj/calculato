@@ -1,4 +1,4 @@
 export enum denOfProjectsActionTypes {
-     NUM,OPER,RES 
+     VAR1,VAR2,OPER,RES 
 
 }
