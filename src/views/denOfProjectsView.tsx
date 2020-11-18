@@ -48,7 +48,7 @@ class DenofProjects extends React.PureComponent<DenofProjectsViewProps> {
             <React.Fragment>
                 <div className="calc-app">
                     <div className="container">
-                        result--   {this.props.result}
+                        result--   {this.props.dopState.result}
                         
                         <input type="text" value={this.state.val} onChange={this.change}></input>
                         <div className="keypad">
