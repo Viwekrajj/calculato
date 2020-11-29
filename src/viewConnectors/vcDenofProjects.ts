@@ -11,7 +11,7 @@ export function mapDispatchToProps(dispatch: any) {
       dispatch(setNumbers(e.target));
     },
 
-    onSum: (e:any)=>{
+    onOper: (e:any)=>{
       dispatch(sum(e.target));
     },
     onReset: ()=>{
