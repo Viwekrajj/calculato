@@ -3,39 +3,58 @@ import { denOfProjectsActionTypes } from "../actionTypes/denOfProjectsActionType
 import { denOfProjectsDTO } from "../DTOs/denOfProjectsDTO";
 
 const initialState: denOfProjectsDTO = {
-  num1: "",
-  num2: "",
-  result: "",
-  op: "",
+  
+  number1: 0,
+  number2: 0,
+  result: 0,
 };
 
-const denOfProjectsReducer: Reducer = (state = initialState, action) => {
-  console.log(state);
+const denOfProjectsReducer: Reducer<denOfProjectsDTO> = (
+  state = initialState,
+  action
+) => {
+  const newState = { ...state };
   switch (action.type) {
-    case denOfProjectsActionTypes.VAR1: {
-      if (state.num1 === "")
-        return { ...state, num1: state.num1 + action.payload };
-    }
-    case denOfProjectsActionTypes.VAR2: {
-      if (state.num2 === "")
-        return { ...state, num2: state.num2 + action.payload };
+   
+
+    case denOfProjectsActionTypes.SET_NUMBERS: {
+      if (action.data.id === "firstNumber") {
+        newState.number1 = Number(action.data.value);
+      } else {
+        newState.number2 = Number(action.data.value);
+      }
+      
+      return newState;
     }
 
-    case denOfProjectsActionTypes.OPER:
-      console.log(action.payload);
-      return {
-        ...state,
-        op: action.payload,
+    case denOfProjectsActionTypes.SUM: {
+      if (action.data.id==="sum" && (newState.number1 && newState.number2)) {
+        newState.result = newState.number1 + newState.number2;
       }
+      else if (action.data.id==="sub" && (newState.number1 && newState.number2)) {
+        newState.result = newState.number1 - newState.number2;
+      }
+      else if (action.data.id==="mult" && (newState.number1 && newState.number2)) {
+        newState.result = newState.number1 * newState.number2;
+      }
+      else if (action.data.id==="div" && (newState.number1 && newState.number2)) {
+        newState.result = newState.number1 / newState.number2;
+      }
+      return newState;
+    }
+    case denOfProjectsActionTypes.RESET: {
+      
+      
+      return {
+        number1:0,
+        number2:0,
+        result:0
+      };
+    }
 
-    case denOfProjectsActionTypes.RES:
-      return {
-        ...state,
-        op: state.op,
-        result: eval(state.num1 + state.op + state.num2),
-      }
-    default:
-      return state;
+    default: {
+      return newState;
+    }
   }
 };
 
