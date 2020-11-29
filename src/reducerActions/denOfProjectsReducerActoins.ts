@@ -1,32 +1,21 @@
 import { denOfProjectsActionTypes } from "../actionTypes/denOfProjectsActionTypes";
 
-
-export const var1=(val:any)=>{
+export function setNumbers(data: any) {
   return {
-      type:denOfProjectsActionTypes.VAR1,
-      payload:val
-      
-  }
-}
-export const var2=(val:any)=>{
-  return {
-      type:denOfProjectsActionTypes.VAR2,
-      payload:val
-      
-  }
-}
-export const oper=(val:any)=>{
-  return {
-      type:denOfProjectsActionTypes.OPER,
-      payload:val
-      
-  }
-}
-export const res=()=>{
-  return {
-      type:denOfProjectsActionTypes.RES
-      
-      
-  }
+    type: denOfProjectsActionTypes.SET_NUMBERS,
+    data: data,
+  };
 }
 
+export function sum(data:any){
+  return {
+    type: denOfProjectsActionTypes.SUM,
+    data:data
+  }
+}
+export function reset(){
+  return {
+    type: denOfProjectsActionTypes.RESET,
+    
+  }
+}
