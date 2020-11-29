@@ -1,4 +1,5 @@
 export enum denOfProjectsActionTypes {
-     VAR1,VAR2,OPER,RES 
-
-}
+     SET_NUMBERS=895,
+     SUM,
+     RESET
+   }
