@@ -8,7 +8,7 @@ import {
 interface DenofProjectsViewProps {
   readonly dopState: any;
   readonly onInputChange: (e: any) => any;
-  readonly onSum: (e:any) => any;
+  readonly onOper: (e:any) => any;
   readonly onReset: () => void;
 
 }
@@ -32,10 +32,10 @@ class DenofProjects extends React.Component<DenofProjectsViewProps> {
           placeholder="Enter second number"
           onChange={this.props.onInputChange}
         />
-        <button id="sum" onClick={this.props.onSum}>Sum</button>
-        <button id="sub" onClick={this.props.onSum}>Sub</button>
-        <button id="mult" onClick={this.props.onSum}>Mult</button>
-        <button id="div" onClick={this.props.onSum}>Div</button>
+        <button id="sum" onClick={this.props.onOper}>Sum</button>
+        <button id="sub" onClick={this.props.onOper}>Sub</button>
+        <button id="mult" onClick={this.props.onOper}>Mult</button>
+        <button id="div" onClick={this.props.onOper}>Div</button>
         <button  onClick={this.props.onReset}>Reset</button>
 
 
